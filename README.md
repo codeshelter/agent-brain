@@ -39,7 +39,11 @@ Requires Python 3 on PATH. Restart Claude Code after installing.
 | `aliases.json` | Optional `<alias>` → real host map, shown at session start |
 | `.git/` | Local-only history (`brain.py history`); never pushed by the tool |
 
-A folder uses the nearest `.agent-brain` found walking up. Folders outside the root get a
+A folder uses the nearest `.agent-brain` found walking up. **Only trusted brains are loaded**
+(`~/.claude/agent-brain-trusted.json`, outside any repo): `init` and `link` trust the brain they
+create; a brain that arrives some other way (e.g. inside a cloned repo) is ignored until you
+review it and run `brain.py trust <path>`. `check`/`save` refuse secrets (tokens, keys,
+passwords) in STATE.md and cards. Folders outside the root get a
 pointer file via `brain.py link <folder> <root>/.agent-brain`. `init` adds `/.agent-brain/`
 to the project repo's `.git/info/exclude`; commit it to the project repo only if you choose to.
 
@@ -52,5 +56,5 @@ to the project repo's `.git/info/exclude`; commit it to the project repo only if
 | `rules/karpathy-guidelines.md` | Always on in every session |
 | `rules/enduser-guide.md` | Rule book for customer-facing guides (listed at session start) |
 | `templates/STATE.md` | Section skeleton for a new brain |
-| `tools/brain.py` | `where, init, link, session-start, check, save, history, board, card-new, card-status, card-note, seed-cards, check-repo` (stdlib only) |
+| `tools/brain.py` | `where, init, link, trust, session-start, check, save, history, board, card-new, card-status, card-note, seed-cards, check-repo` (stdlib only) |
 | `tools/pre-commit` | `check-repo`: blocks project data, internal hosts/IPs and secrets in this repo |
