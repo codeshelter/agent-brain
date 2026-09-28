@@ -2,8 +2,20 @@
   "name": "agent-brain",
   "description": "Per-project memory for Claude Code: a size-capped STATE.md snapshot and a local card board kept in <project>/.agent-brain, loaded at every session start; /handoff and /onboard-project skills; always-on Karpathy coding guidelines and rule books; MCP servers for Jira (on-prem + portfolio), Redmine and Nexus.",
   "version": "0.3.0",
-  "author": { "name": "codeshelter" },
-  "keywords": ["memory", "context", "continuity", "kanban", "handoff", "jira", "redmine", "nexus", "mcp"],
+  "author": {
+    "name": "codeshelter"
+  },
+  "keywords": [
+    "memory",
+    "context",
+    "continuity",
+    "kanban",
+    "handoff",
+    "jira",
+    "redmine",
+    "nexus",
+    "mcp"
+  ],
   "userConfig": {
     "jira_url": {
       "type": "string",
@@ -42,6 +54,64 @@
       "title": "Nexus password",
       "description": "Nexus password for basic auth. Stored in the OS keychain.",
       "sensitive": true
+    }
+  },
+  "mcpServers": {
+    "jira-onprem": {
+      "command": "uvx",
+      "args": [
+        "mcp-atlassian"
+      ],
+      "env": {
+        "JIRA_URL": "${user_config.jira_url}",
+        "JIRA_PERSONAL_TOKEN": "${user_config.jira_token}"
+      }
+    },
+    "jira-portfolio": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--with",
+        "mcp<2",
+        "python",
+        "${CLAUDE_PLUGIN_ROOT}/mcp/jira_portfolio_mcp.py"
+      ],
+      "env": {
+        "JIRA_URL": "${user_config.jira_url}",
+        "JIRA_AUTH_TYPE": "token",
+        "JIRA_PERSONAL_TOKEN": "${user_config.jira_token}"
+      }
+    },
+    "redmine": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--with",
+        "mcp<2",
+        "python",
+        "${CLAUDE_PLUGIN_ROOT}/mcp/redmine_mcp.py"
+      ],
+      "env": {
+        "REDMINE_URL": "${user_config.redmine_url}",
+        "REDMINE_AUTH_TYPE": "token",
+        "REDMINE_API_KEY": "${user_config.redmine_api_key}"
+      }
+    },
+    "nexus": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--with",
+        "mcp<2",
+        "python",
+        "${CLAUDE_PLUGIN_ROOT}/mcp/nexus_mcp.py"
+      ],
+      "env": {
+        "NEXUS_URL": "${user_config.nexus_url}",
+        "NEXUS_AUTH_TYPE": "basic",
+        "NEXUS_USERNAME": "${user_config.nexus_username}",
+        "NEXUS_PASSWORD": "${user_config.nexus_password}"
+      }
     }
   }
 }

@@ -30,7 +30,7 @@ Requires Python 3 on PATH. Restart Claude Code after installing.
 
 ## MCP servers (Jira, Redmine, Nexus)
 
-The plugin registers four MCP servers (`.mcp.json`); their tools appear as
+The plugin registers four MCP servers (`mcpServers` in `.claude-plugin/plugin.json`, so the repo folder itself is not read as a project MCP config); their tools appear as
 `mcp__plugin_agent-brain_<server>__<tool>`.
 
 | Server | Source | Needs |
@@ -73,5 +73,5 @@ to the project repo's `.git/info/exclude`; commit it to the project repo only if
 | `rules/enduser-guide.md` | Rule book for customer-facing guides (listed at session start) |
 | `templates/STATE.md` | Section skeleton for a new brain |
 | `tools/brain.py` | `where, init, link, trust, session-start, check, save, history, board, card-new, card-status, card-note, seed-cards, check-repo` (stdlib only) |
-| `.mcp.json`, `mcp/` | The four MCP servers and their source |
+| `mcp/` | Source of the MCP servers (declared in plugin.json) |
 | `tools/pre-commit` | `check-repo`: blocks project data, internal hosts/IPs and secrets in this repo |
