@@ -70,8 +70,11 @@ to the project repo's `.git/info/exclude`; commit it to the project repo only if
 | `hooks/hooks.json` | SessionStart: injects the always-on rules, and the project's brain if there is one |
 | `skills/handoff`, `skills/onboard-project` | The two workflows |
 | `rules/karpathy-guidelines.md` | Always on in every session |
+| `rules/git-commits.md` | Always on: pure human commit/merge/PR messages, **no AI footer anywhere** |
+| `rules/jira.md` | Rule book for creating, commenting on and closing Jira issues |
 | `rules/enduser-guide.md` | Rule book for customer-facing guides (listed at session start) |
 | `templates/STATE.md` | Section skeleton for a new brain |
 | `tools/brain.py` | `where, init, link, trust, session-start, check, save, history, board, card-new, card-status, card-note, seed-cards, check-repo` (stdlib only) |
 | `mcp/` | Source of the MCP servers (declared in plugin.json) |
+| `tools/commit-msg` | Git hook that rejects AI/agent footers; copy into any repo's `.git/hooks/` |
 | `tools/pre-commit` | `check-repo`: blocks project data, internal hosts/IPs and secrets in this repo |

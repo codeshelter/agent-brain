@@ -39,7 +39,7 @@ from pathlib import Path
 PLUGIN_ROOT = Path(__file__).resolve().parent.parent
 RULES_DIR = PLUGIN_ROOT / "rules"
 TEMPLATES = PLUGIN_ROOT / "templates"
-ALWAYS_ON_RULES = ["karpathy-guidelines.md"]  # injected in full into every session
+ALWAYS_ON_RULES = ["karpathy-guidelines.md", "git-commits.md"]  # injected in full into every session
 BRAIN = ".agent-brain"
 # Only brains the user created or approved are injected into sessions (a cloned repo could
 # ship its own .agent-brain). The list lives outside every repo.
