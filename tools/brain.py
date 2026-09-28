@@ -77,7 +77,7 @@ LEAK_PATTERNS = [
     ("github token", re.compile(r"(?:github_pat_\w{20,}|gh[pousr]_\w{20,})")),
     ("jwt", re.compile(r"eyJ[\w-]{10,}\.[\w-]{10,}\.")),
     ("private key", re.compile(r"-----BEGIN [A-Z ]*PRIVATE KEY-----")),
-    ("password assignment", re.compile(r"(?i)(?:password|passwd|pwd|pin)\s*[:=]\s*(?!\[REDACTED\])[^\s,;]{4,}")),
+    ("password assignment", re.compile(r"(?i)(?:password|passwd|pwd|pin)\s*[:=]\s*(?!\[REDACTED\]|os\.(?:environ|getenv)|\$\{)[^\s,;]{4,}")),
     ("credentials in url", re.compile(r"https?://[^/\s:@]+:[^/\s@]+@")),
 ]
 

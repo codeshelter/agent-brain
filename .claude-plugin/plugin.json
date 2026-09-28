@@ -1,7 +1,47 @@
 {
   "name": "agent-brain",
-  "description": "Per-project memory for Claude Code: a size-capped STATE.md snapshot and a local card board kept in <project>/.agent-brain, loaded at every session start; /handoff and /onboard-project skills; always-on Karpathy coding guidelines and rule books.",
-  "version": "0.2.0",
+  "description": "Per-project memory for Claude Code: a size-capped STATE.md snapshot and a local card board kept in <project>/.agent-brain, loaded at every session start; /handoff and /onboard-project skills; always-on Karpathy coding guidelines and rule books; MCP servers for Jira (on-prem + portfolio), Redmine and Nexus.",
+  "version": "0.3.0",
   "author": { "name": "codeshelter" },
-  "keywords": ["memory", "context", "continuity", "kanban", "handoff"]
+  "keywords": ["memory", "context", "continuity", "kanban", "handoff", "jira", "redmine", "nexus", "mcp"],
+  "userConfig": {
+    "jira_url": {
+      "type": "string",
+      "title": "Jira base URL",
+      "description": "Jira Server/Data Center base URL, e.g. https://jira.example.internal (used by jira-onprem and jira-portfolio)"
+    },
+    "jira_token": {
+      "type": "string",
+      "title": "Jira personal access token",
+      "description": "Jira PAT (Bearer). Stored in the OS keychain.",
+      "sensitive": true
+    },
+    "redmine_url": {
+      "type": "string",
+      "title": "Redmine base URL",
+      "description": "e.g. https://redmine.example.internal"
+    },
+    "redmine_api_key": {
+      "type": "string",
+      "title": "Redmine API key",
+      "description": "Redmine REST API key (My account > API access key). Stored in the OS keychain.",
+      "sensitive": true
+    },
+    "nexus_url": {
+      "type": "string",
+      "title": "Nexus base URL",
+      "description": "Sonatype Nexus Repository base URL, e.g. https://nexus.example.internal"
+    },
+    "nexus_username": {
+      "type": "string",
+      "title": "Nexus username",
+      "description": "Nexus account for basic auth"
+    },
+    "nexus_password": {
+      "type": "string",
+      "title": "Nexus password",
+      "description": "Nexus password for basic auth. Stored in the OS keychain.",
+      "sensitive": true
+    }
+  }
 }

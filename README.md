@@ -28,6 +28,22 @@ Requires Python 3 on PATH. Restart Claude Code after installing.
 | Brand-new project | `/onboard-project <name>` and give the goal + first steps. |
 | End of meaningful work | `/handoff`: updates state and cards, saves to the brain's local git. |
 
+## MCP servers (Jira, Redmine, Nexus)
+
+The plugin registers four MCP servers (`.mcp.json`); their tools appear as
+`mcp__plugin_agent-brain_<server>__<tool>`.
+
+| Server | Source | Needs |
+|---|---|---|
+| `jira-onprem` | PyPI `mcp-atlassian` (via `uvx`) | Jira URL + PAT |
+| `jira-portfolio` | `mcp/jira_portfolio_mcp.py` (Advanced Roadmaps / Portfolio) | Jira URL + PAT |
+| `redmine` | `mcp/redmine_mcp.py` | Redmine URL + API key |
+| `nexus` | `mcp/nexus_mcp.py` + `mcp/nexus/` (Nexus 3 REST, ~90 tools) | Nexus URL + user + password |
+
+Credentials are plugin settings, never files: run `/plugin configure agent-brain`
+(secrets go to the OS keychain). Requires `uv`/`uvx` on PATH. TLS verification is on;
+`*_CA_BUNDLE` / `*_SSL_VERIFY` env overrides exist in the sources for exceptional cases.
+
 ## A project brain (`<project root>/.agent-brain/`)
 
 | File | Purpose |
@@ -57,4 +73,5 @@ to the project repo's `.git/info/exclude`; commit it to the project repo only if
 | `rules/enduser-guide.md` | Rule book for customer-facing guides (listed at session start) |
 | `templates/STATE.md` | Section skeleton for a new brain |
 | `tools/brain.py` | `where, init, link, trust, session-start, check, save, history, board, card-new, card-status, card-note, seed-cards, check-repo` (stdlib only) |
+| `.mcp.json`, `mcp/` | The four MCP servers and their source |
 | `tools/pre-commit` | `check-repo`: blocks project data, internal hosts/IPs and secrets in this repo |
