@@ -1,7 +1,7 @@
 {
   "name": "agent-brain",
   "description": "Per-project memory for Claude Code: a size-capped STATE.md snapshot and a local card board kept in <project>/.agent-brain, loaded at every session start; /handoff and /onboard-project skills; always-on Karpathy coding guidelines and rule books; MCP servers for Jira (on-prem + portfolio), Redmine and Nexus.",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "author": {
     "name": "codeshelter"
   },

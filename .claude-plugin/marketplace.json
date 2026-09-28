@@ -1,13 +1,13 @@
 {
   "name": "agent-brain",
   "owner": { "name": "codeshelter" },
-  "metadata": { "description": "agent-brain plugin marketplace", "version": "0.3.0" },
+  "metadata": { "description": "agent-brain plugin marketplace", "version": "0.3.1" },
   "plugins": [
     {
       "name": "agent-brain",
       "source": "./",
       "description": "Per-project STATE.md + local board in <project>/.agent-brain, injected at session start; /handoff and /onboard-project; always-on Karpathy guidelines; MCP servers for Jira, Redmine, Nexus.",
-      "version": "0.3.0",
+      "version": "0.3.1",
       "author": { "name": "codeshelter" },
       "category": "workflow"
     }
