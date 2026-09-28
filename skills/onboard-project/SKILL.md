@@ -27,6 +27,9 @@ folders to link. Brand-new project: ask for goal and first next steps; skip step
 - `$BRAIN_TOOL init <id> "<title>" <root>`: creates `<root>/.agent-brain` (template
   STATE.md, empty board, local git; excluded from the project's own git via info/exclude).
 - For each folder outside the root: `$BRAIN_TOOL link <folder> <root>/.agent-brain`.
+- For every git repo of the project that has no `commit-msg` hook yet, copy the plugin's
+  `tools/commit-msg` into its hooks dir (`git rev-parse --git-path hooks`); it blocks AI/agent
+  footers (rules/git-commits.md). Never overwrite an existing hook; report it instead.
 
 ## 4. Consolidate (one general-purpose agent, in the background)
 Give it every source from step 1 and these instructions:
