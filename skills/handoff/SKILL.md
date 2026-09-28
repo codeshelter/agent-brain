@@ -37,7 +37,7 @@ Long detail goes to cards or topic memory files, linked under **Where things liv
   (kind: bug|feature|investigation|debt|infra).
 
 ## 4. Save
-`$BRAIN_TOOL save "handoff: <one line>"`: checks the size limits, rebuilds BOARD.md and
+`$BRAIN_TOOL save "handoff: <one line>"`: checks the size limits, rebuilds BOARD.md + BOARD.html and
 commits to the brain's local git. If the check fails, shorten STATE.md; never bypass it.
 
 ## 5. Report

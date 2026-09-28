@@ -51,7 +51,8 @@ Credentials are plugin settings, never files: run `/plugin configure agent-brain
 | `project.json` | id and title |
 | `STATE.md` | Snapshot of "now" (rewritten, not a log). Max 120 KB with per-section caps; only Now / Blocked / Next up / Standing rules load at session start. |
 | `cards/NNN-*.md` | One task card each: status, kind, jira, body, dated log |
-| `BOARD.md` | Kanban view generated from the cards |
+| `BOARD.md` | Kanban view generated from the cards (loaded into sessions) |
+| `BOARD.html` | Same board as one self-contained HTML5 page for Chrome/Edge: columns by status, search, kind filters, click a card for its body and log. Offline, no external resources. `brain.py board-open` opens it. |
 | `aliases.json` | Optional `<alias>` → real host map, shown at session start |
 | `.git/` | Local-only history (`brain.py history`); never pushed by the tool |
 
@@ -74,7 +75,8 @@ to the project repo's `.git/info/exclude`; commit it to the project repo only if
 | `rules/jira.md` | Rule book for creating, commenting on and closing Jira issues |
 | `rules/enduser-guide.md` | Rule book for customer-facing guides (listed at session start) |
 | `templates/STATE.md` | Section skeleton for a new brain |
-| `tools/brain.py` | `where, init, link, trust, session-start, check, save, history, board, card-new, card-status, card-note, seed-cards, check-repo` (stdlib only) |
+| `tools/brain.py` | `where, init, link, trust, session-start, check, save, history, board, board-open, card-new, card-status, card-note, seed-cards, check-repo` (stdlib only) |
 | `mcp/` | Source of the MCP servers (declared in plugin.json) |
+| `tools/board_html.py` | Renders BOARD.html (stdlib only) |
 | `tools/commit-msg` | Git hook that rejects AI/agent footers; copy into any repo's `.git/hooks/` |
 | `tools/pre-commit` | `check-repo`: blocks project data, internal hosts/IPs and secrets in this repo |
