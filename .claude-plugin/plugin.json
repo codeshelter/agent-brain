@@ -1,0 +1,7 @@
+{
+  "name": "agent-brain",
+  "description": "Per-project memory for Claude Code: a size-capped STATE.md snapshot and a local card board kept in <project>/.agent-brain, loaded at every session start; /handoff and /onboard-project skills; always-on Karpathy coding guidelines and rule books.",
+  "version": "0.2.0",
+  "author": { "name": "codeshelter" },
+  "keywords": ["memory", "context", "continuity", "kanban", "handoff"]
+}

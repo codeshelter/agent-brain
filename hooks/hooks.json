@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh -c 'P=$(command -v python || command -v python3); exec \"$P\" \"${CLAUDE_PLUGIN_ROOT}/tools/brain.py\" session-start'",
+            "timeout": 15
+          }
+        ]
+      }
+    ]
+  }
+}

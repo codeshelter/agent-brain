@@ -1,0 +1,5 @@
+# never commit a project brain or machine-local files into the plugin repo
+.agent-brain/
+local/
+*.local.*
+__pycache__/

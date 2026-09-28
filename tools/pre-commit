@@ -1,0 +1,4 @@
+#!/bin/sh
+# Keeps the plugin repo free of project data, hosts, IPs and secrets.
+# Install: cp tools/pre-commit .git/hooks/pre-commit
+exec python tools/brain.py check-repo --staged
